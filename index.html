@@ -1,27 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href='https://fonts.googleapis.com/css?family=Figtree' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
-    font-family: 'Figtree';font-size: 20px;
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 25px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 </style>
+  <link href='https://fonts.googleapis.com/css?family=Figtree' rel='stylesheet'>
+  <style>
+  body {
+      font-family: 'Figtree';font-size: 20px;
+
+  </style>
 </head>
 <body>
 
 <h1>&euro;ddie$</h1>
-  
-<h3>PeraWallet</h3>
-<b>First you need to install the PeraWallet, find it at https://perawallet.app<b>
 
-<h3>Buy Algorand</h3>
-<b>https://www.coingecko.com/en/coins/algorand#markets<b>
+<button class="accordion">PeraWallet</button>
+<div class="panel">
+  <p><b>First you need to install the PeraWallet, find it at https://perawallet.app<b></p>
+</div>
 
-<h3>Dappflow.org</h3>
-<b>Go to https://app.dappflow.org/asset-manager. Connect your Perawallet. Create your &euro;ddie$: Name: &euro;ddie$ Unit Name: &euro;$ Total Supply: 1000000 Decimals: 0 Url: Asset Management: Leave everything checked and finally create. Companies cannot create &euro;ddie$, but they can loan &euro;ddie$ from community members, accept and pay with &euro;ddie$. <b>
-  
-  <h3>Blockchain</h3>
-<b>&euro;ddie$ are not blockchain bound and can be distributed on many blockchains or decentralized networks with a proof of facts, costing 1&euro;ddie$ per proof. In the ideal environment, you should be able to freeze, clawback and destroy your &euro;ddie$.<b>
+<button class="accordion">Buy Algorand</button>
+<div class="panel">
+  <p><b>https://www.coingecko.com/en/coins/algorand#markets<b></p>
+</div>
+
+<button class="accordion">Dappflow.org</button>
+<div class="panel">
+  <p><b>Go to https://app.dappflow.org/asset-manager. Connect your Perawallet. Create your &euro;ddie$: Name: &euro;ddie$ Unit Name: &euro;$ Total Supply: 1000000 Decimals: 0 Url: Asset Management: Leave everything checked and finally create. Companies cannot create &euro;ddie$, but they can loan &euro;ddie$ from community members, accept and pay with &euro;ddie$. <b>
+</p>
+</div>
+
+<button class="accordion">Blockchain</button>
+<div class="panel">
+  <p><b>&euro;ddie$ are not blockchain bound and can be distributed on many blockchains or decentralized networks with a proof of facts, costing 1&euro;ddie$ per proof. In the ideal environment, you should be able to freeze, clawback and destroy your &euro;ddie$.<b></p>
+</div>
+
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
 </body>
 </html>
+
